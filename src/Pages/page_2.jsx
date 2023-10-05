@@ -7,7 +7,7 @@ export default function page2() {
 
     const [data, setData] = useState([]);
 
-    useEffect(() => { 
+    useEffect(() => {
         const getData = async () => {
             await axios.get(api_url).then((res) => { 
                 const responseData = res.data.results;
@@ -15,10 +15,10 @@ export default function page2() {
             })
             .catch((error) => {
                 window.alert(error); 
-            }); 
-        } 
+            });
+        }
         getData();
-    }, []); 
+    }, [])
 
     return (
         <div>
