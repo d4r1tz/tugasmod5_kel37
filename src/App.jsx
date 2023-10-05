@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import './App.css'
+import Page1 from './Pages/page_1.jsx'
+import Page2 from './Pages/page_2.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='App'>
+      <h1>Tugas Modul 5 | Kelompok 37</h1>
+      <Router>
+        <div style={{display:'flex', alignItems:'flex-start'}}>
+          <p style={{paddingLeft:'300px'}}></p>
+          <p style={{marginRight:'10px'}}><Link to="/1">Page 1</Link></p>
+          <p style={{marginLeft:'10px'}}><Link to="/2">Page 2</Link></p>
+        </div>
+        <Routes>
+          <Route path='/' exact element={<Page1 />}></Route>
+          <Route path='/1' exact element={<Page1 />}></Route>
+          <Route path='/2' exact element={<Page2 />}></Route>
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
