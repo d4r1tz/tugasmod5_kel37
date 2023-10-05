@@ -1,24 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useContext} from 'react';
+import { Context } from '../App';
 
 export default function page1() {
 
-    const api_url = 'https://pokeapi.co/api/v2/pokemon/'
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const getData = async () => {
-            await axios.get(api_url).then((res) => { 
-                const responseData = res.data.results;
-                setData(responseData);
-            })
-            .catch((error) => {
-                window.alert(error); 
-            });
-        }
-        getData();
-    }, [])
+    const data = useContext(Context)
 
     return (
         <div>
